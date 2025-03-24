@@ -4,10 +4,11 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Progress } from "@/components/ui/progress"
+import Image from "next/image"
 
 interface TimeActivity {
   id: string
@@ -99,7 +100,7 @@ const personaStrategies = {
   "time-struggler": ["Time Wealth Hard Reset", "Energy Calendar", "Build a simple daily routine"]
 }
 
-export default function StrategiesPage() {
+function StrategiesContent() {
   const searchParams = useSearchParams()
   const persona = searchParams.get("persona")
   const recommendedStrategies = persona ? personaStrategies[persona as keyof typeof personaStrategies] : []
@@ -274,10 +275,12 @@ export default function StrategiesPage() {
               >
                 <div className="space-y-4">
                   <div className="relative h-48 w-full overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src={strategy.image}
                       alt={strategy.title}
-                      className="object-cover w-full h-full"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                   <div className="space-y-2">
@@ -591,5 +594,13 @@ export default function StrategiesPage() {
         })}
       </div>
     </div>
+  )
+}
+
+export default function StrategiesPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <StrategiesContent />
+    </Suspense>
   )
 } 

@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
-const ICON_MAP = {
+const ICON_MAP: Record<string, any> = {
   briefcase: Briefcase,
   user: User,
   users: Users,
@@ -55,7 +55,7 @@ export function PersonaSelector({ selectedPersonas, onPersonaSelect, onPersonaRe
                 <X className="h-4 w-4" />
               </Button>
               <CardTitle className="text-lg flex items-center gap-2">
-                {ICON_MAP[persona.icon] && createElement(ICON_MAP[persona.icon], { className: "w-4 h-4" })}
+                {persona.icon && ICON_MAP[persona.icon] && createElement(ICON_MAP[persona.icon], { className: "w-4 h-4" })}
                 {persona.name}
               </CardTitle>
               <CardDescription>{persona.description}</CardDescription>
@@ -124,7 +124,7 @@ export function PersonaSelector({ selectedPersonas, onPersonaSelect, onPersonaRe
                 }}
               >
                 <div className="flex items-start gap-3">
-                  {ICON_MAP[persona.icon] && createElement(ICON_MAP[persona.icon], { className: "w-4 h-4 mt-1" })}
+                  {persona.icon && ICON_MAP[persona.icon] && createElement(ICON_MAP[persona.icon], { className: "w-4 h-4 mt-1" })}
                   <div className="text-left">
                     <div className="font-medium">{persona.name}</div>
                     <div className="text-sm text-muted-foreground">{persona.description}</div>

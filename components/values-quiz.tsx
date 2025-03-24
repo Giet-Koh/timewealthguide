@@ -85,8 +85,8 @@ export function ValuesQuiz({ onValuesSelected }: ValuesQuizProps) {
     })
   }
 
-  const handlePersonaRemove = (persona: Persona) => {
-    setSelectedPersonas(selectedPersonas.filter(p => p.id !== persona.id))
+  const handlePersonaRemove = (personaId: string) => {
+    setSelectedPersonas(selectedPersonas.filter(p => p.id !== personaId))
   }
 
   const handleComplete = () => {

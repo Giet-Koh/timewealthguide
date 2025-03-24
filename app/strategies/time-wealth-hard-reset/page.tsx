@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -15,7 +15,7 @@ interface TimeActivity {
   value: "high" | "medium" | "low"
 }
 
-export default function TimeWealthHardReset() {
+function TimeWealthHardResetContent() {
   const searchParams = useSearchParams()
   const persona = searchParams.get("persona")
   
@@ -203,5 +203,13 @@ export default function TimeWealthHardReset() {
         </Card>
       </div>
     </div>
+  )
+}
+
+export default function TimeWealthHardResetPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TimeWealthHardResetContent />
+    </Suspense>
   )
 } 
