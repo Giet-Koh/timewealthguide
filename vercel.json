@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npm install --legacy-peer-deps --force && next build",
+  "buildCommand": "npm install --legacy-peer-deps --force && npm install react@18.2.0 react-dom@18.2.0 --save --legacy-peer-deps && next build",
   "installCommand": "npm install --legacy-peer-deps --force",
   "framework": "nextjs",
   "builds": [
@@ -10,6 +10,6 @@
     }
   ],
   "env": {
-    "NODE_VERSION": "18.x"
+    "NODE_VERSION": "18.17.0"
   }
 } 
