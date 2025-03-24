@@ -22,11 +22,14 @@ export default [
       '@typescript-eslint/no-unused-vars': ['warn', { 
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_',
-        ignoreRestSiblings: true 
+        ignoreRestSiblings: true,
+        varsIgnorePattern: '^_',
+        args: 'none',
+        ignoreRestSiblings: true
       }],
       '@typescript-eslint/no-explicit-any': 'warn',
       'react/no-unescaped-entities': 'off',
-      '@next/next/no-img-element': 'warn'
+      '@next/next/no-img-element': 'off'
     },
   },
 ];

@@ -100,6 +100,32 @@ const personaStrategies = {
   "time-struggler": ["Time Wealth Hard Reset", "Energy Calendar", "Build a simple daily routine"]
 }
 
+function LoadingFallback() {
+  return (
+    <div className="container mx-auto py-8 space-y-8">
+      <div className="space-y-4">
+        <div className="h-8 w-48 bg-gray-200 rounded animate-pulse" />
+        <div className="h-4 w-96 bg-gray-200 rounded animate-pulse" />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="space-y-4">
+            <Card className="p-6">
+              <div className="space-y-4">
+                <div className="h-48 w-full bg-gray-200 rounded animate-pulse" />
+                <div className="space-y-2">
+                  <div className="h-6 w-3/4 bg-gray-200 rounded animate-pulse" />
+                  <div className="h-4 w-full bg-gray-200 rounded animate-pulse" />
+                </div>
+              </div>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function StrategiesContent() {
   const searchParams = useSearchParams()
   const persona = searchParams.get("persona")
@@ -599,7 +625,7 @@ function StrategiesContent() {
 
 export default function StrategiesPage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<LoadingFallback />}>
       <StrategiesContent />
     </Suspense>
   )
