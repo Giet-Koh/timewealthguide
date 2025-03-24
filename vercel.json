@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npm install --legacy-peer-deps --force && npm install react@18.2.0 react-dom@18.2.0 react-day-picker@7.4.10 --save --legacy-peer-deps && next build",
+  "buildCommand": "npm install --legacy-peer-deps --force && npm install react@18.2.0 react-dom@18.2.0 react-day-picker@8.9.1 --save --legacy-peer-deps && next build",
   "installCommand": "npm install --legacy-peer-deps --force",
   "framework": "nextjs",
   "builds": [
