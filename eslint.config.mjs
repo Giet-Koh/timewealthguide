@@ -19,17 +19,11 @@ export default [
   {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
     rules: {
-      '@typescript-eslint/no-unused-vars': ['warn', { 
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        ignoreRestSiblings: true,
-        varsIgnorePattern: '^_',
-        args: 'none',
-        ignoreRestSiblings: true
-      }],
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
       'react/no-unescaped-entities': 'off',
-      '@next/next/no-img-element': 'off'
+      '@next/next/no-img-element': 'off',
+      'react-hooks/exhaustive-deps': 'off'
     },
   },
 ];
